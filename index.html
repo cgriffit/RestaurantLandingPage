@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Restaurant Landing Page</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans:400,600|Literata:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <header>
+        <div class="wrapper">
+            <nav>
+                <h3 id="name">Fiddle & Pipes</h3>
+                <!-- 
+                    The Flute and the Fiddle
+                    Flute & Fiddle
+
+                 -->
+                <ul id="main-menu">
+                    <li class="menu-item"><a href="#home" class="menu-link">Home</a></li>
+                    <li class="menu-item"><a href="#food" class="menu-link">Food</a></li>
+                    <li class="menu-item"><a href="#drinks" class="menu-link" id="drinks-link">Drinks</a></li>
+                    <li class="menu-item"><a href="#about" class="menu-link">About</a></li>
+                    <a href="#" id="navToggle" class="hidden">
+                        <i class="fa fas fa-bars fa-lg"></i>
+                    </a>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <main>
+
+        <!-- These pages must contain a detailed description and presentation of the purpose of the website (such as functions and products of the what the website would like to show)-->
+        <section id="home">
+            <div class="wrapper">
+                <h1>Tagline</h1>
+            </div>
+        </section>
+        <section id="food">
+            <div class="wrapper">
+                <h2>FOOD</h2>
+                <h3>Starters</h3>
+                <ul id="starters" class="food-list"></ul>
+                <h3>Main Courses</h3>
+                <ul id="mainCourses" class="food-list"></ul>
+                <h3>Sides</h3>
+                <ul id="sides"class="food-list"></ul>
+                <h3>Desserts</h3>
+                <ul id="desserts" class="food-list"></ul>
+            </div>
+        </section>
+        <hr>
+        <section id="drinks">
+            <h2>DRINKS</h2>
+            <div class="wrapper adult hidden">
+                <!-- <div class="row">
+                    <article class="col"> -->
+                        <h3>Drafts</h3>
+                        <ul id="drafts" class="drinks-list"></ul>
+                    <!-- </article>
+                    <article class="col"> -->
+                        <h3>Wine</h3>
+                        <ul id="wine" class="drinks-list"></ul>
+                    <!-- </article>
+                </div> -->
+            </div>
+            <div class="wrapper non-alc hidden">
+                <!-- <div class="row">
+                    <article class="col"> -->
+                        <h3>Coffee</h3>
+                        <ul id="coffee" class="drinks-list"></ul>
+                    <!-- </article>
+                    <article class="col"> -->
+                        <h3>Tea</h3>
+                        <ul id="tea" class="drinks-list"></ul>
+                    <!-- </article>
+                </div> -->
+            </div>
+
+        </section>
+        <div class="wrapper hidden" id="ageModal">
+                
+            <form action="" method="get" id="ageForm">
+                <!-- <label for="age">Please enter your age:</label>
+                    <br> -->
+                <input type="text" id="age" name="age" placeholder="Please enter your age">
+                <input type="button" value="Submit" id="ageSubmit">
+            </form>
+        </div>
+        <section id="about">
+            <div class="wrapper">
+
+            </div>
+        </section>
+        </div>
+    </main>
+    <footer>
+        <div class="wrapper">
+            <div id="contact">
+                <h5>Contact Us</h4>
+                <p>Madison, WI 53703</p>
+                <p>(608) 301-5417‬</p>
+            </div>
+            <div id="hours">
+                <h5>Hours</h4>
+                <p>Sunday - Wednesday: 11am - 10pm</p>
+                <p>Thursday - Saturday: 11am - 12am</p>
+            </div>
+            <div id="socialMedia">
+                <a href="http://www.facebook.com" target="_blank">
+                    <i class="fa fab fa-facebook-f fa-2x"></i>
+                </a>
+                <a href="http://www.instagram.com" target="_blank">
+                    <i class="fa fab fa-instagram fa-2x"></i>
+                </a>
+                <a href="http://www.twitter.com" target="_blank">
+                    <i class="fa fab fa-twitter fa-2x"></i>
+                </a>
+            </div>
+        </div>
+    </footer>
+    <script src="js/menuItems.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
