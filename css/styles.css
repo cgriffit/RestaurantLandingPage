@@ -29,7 +29,9 @@ header {
 }
 
 /* Nav Styles */
-
+#name {
+    font-size: 1.75rem;
+}
 nav {
     color: #FAF3ED;
     display: flex;
@@ -78,10 +80,13 @@ h1 {
 #food>.wrapper, #drinks>.wrapper {
     max-width: 750px;
 }
+#drinks {
+    padding: 100px 0;
+}
 h2 {
     font-family: 'Literata', serif;
     font-size: 2.25rem;
-    padding: 20px 0;
+    padding: 5% 0;
     text-align: center;
     text-decoration: underline;
 }
@@ -97,8 +102,10 @@ h3 {
     justify-content: space-between;
     padding: 5px 0;
 }
-.food-list li {
+.food-list li, .drinks-list li {
     padding: 5px 0;
+}
+.food-list li {
     transition: all 0.4s ease-out;
 }
 .food-list li:hover {
@@ -113,9 +120,13 @@ h3 {
 .food-price {
     text-align: right;
 }
-.row {
-    display: flex;
-    justify-content: space-around;
+#seeDrinksBtn {
+    background: #1D3240;
+    color: #FAF3ED;
+    display: block;
+    font-size: 1.5rem;
+    margin: 0 auto;
+    padding: 1em 2em;
 }
 
 /* More Info Modal Styles*/
@@ -169,6 +180,7 @@ input#age {
     background: #D98859;
     border-radius: 5px;
     color: #1D3240;
+    font-size: 1rem;
     font-weight: bold;
     padding: 1em 2em;
 }
@@ -177,6 +189,20 @@ input#age {
 }
 #ageSubmit:active {
     transform: scale(0.95);
+}
+
+/* About Styles */
+#about {
+    background: #D98859;
+    padding: 30px 15px;
+}
+#about .wrapper {
+    display: flex;
+    align-items: center;
+}
+#about-text {
+    line-height: 1.5rem;
+    margin-left: 15px;
 }
 
 /* Footer Styles */

@@ -1,25 +1,37 @@
-// =========== FOOD MENU ===================
+// =========== MENUS ===================
 const removeSpaces = item => {
     // remove spaces from item name to be used as item ID
     item = item.replace(/\s+/g, '-');
     return item;
 }
 
-const renderFoodItem = (item, id) => {
-    const markup = `
-        <li class="food-item" id="${removeSpaces(item.name)}">
-            <div class="infoModal">
-                <span class="cancel"><i class="fa fas fa-times"></i></span>
-                <p>${item.description}</p>
-            </div>
-            <div class="food-info">
-                <h4 class="food-name">${item.name}</h4>
-                <p class="food-price">${item.price}</p>
-            </div>
-            <button class="more-info-btn hidden">More Info</button>       
-        </li>
-        
-    `;
+const renderItem = (item, id, type) => {
+    let markup;
+
+    if (type === "food") {
+        markup = `
+            <li class="food-item" id="${removeSpaces(item.name)}">
+                <div class="infoModal">
+                    <span class="cancel"><i class="fa fas fa-times"></i></span>
+                    <p>${item.description}</p>
+                </div>
+                <div class="food-info">
+                    <h4 class="food-name">${item.name}</h4>
+                    <p class="food-price">${item.price}</p>
+                </div>
+                <button class="more-info-btn hidden">More Info</button>       
+            </li>       
+        `;
+    } else if (type === "drinks") {
+        markup = `
+            <li class="drink-item" id="${removeSpaces(item.name)}">
+                <div class="drink-info">
+                    <h4 class="drink-name">${item.name}</h4>
+                    <p class="drink-price">${item.price}</p>
+                </div>    
+            </li>      
+        `;
+    }
 
     // add items to the end of the list
     document.querySelector(`#${id}`).insertAdjacentHTML("beforeend", markup);
@@ -33,12 +45,28 @@ const renderFood = items => {
     for (let list of foodLists) {
         // loop through each entree in the list and render markup for it
         for (let entree in items[list.id]) {
-            renderFoodItem(items[list.id][entree], list.id);
+            renderItem(items[list.id][entree], list.id, list.parentElement.parentElement.id);
         }
     }
 }
 
 renderFood(menu.food);
+
+// populate drinks menu
+const renderDrinks = items => {
+    const drinksLists = document.querySelectorAll(".drinks-list");
+
+    // // loop through all food lists (starters, main, sides, desserts)
+    for (let list of drinksLists) {
+        // loop through each entree in the list
+        for (let drink in items[list.id]) {
+            //console.log(items[list.id][drink]);
+            renderItem(items[list.id][drink], list.id, list.parentElement.parentElement.id);
+        }
+    }
+}
+
+renderDrinks(menu.drinks);
 
 // =========== MORE INFO BUTTON AND MODAL ==================
 const showMoreInfo = event => {
@@ -98,39 +126,31 @@ const checkAge = () => {
     // show appropriate drink menu
     age >= 21 ? document.querySelector(".adult").classList.remove("hidden") :
         document.querySelector(".non-alc").classList.remove("hidden");
-    document.querySelector("#drinks").style.opacity = 1;
     //reset age
     age = "";
 }
 
 const openModal = () => {
+    // hide see drinks button
+    document.querySelector("#seeDrinksBtn").style.display = "none";
     // show age modal
     document.querySelector("#ageModal").classList.remove("hidden");
-    // hide drink menu
-    document.querySelector("#drinks").style.opacity = 0;
     // remove event listeners
     document.querySelector("#drinks-link").removeEventListener("click", openModal);
-    window.removeEventListener("scroll", checkScroll);
 }
 
 const closeModal = () => {
     // hide age modal
     document.querySelector("#ageModal").classList.add("hidden");
+    document.querySelector("#drinks").style.paddingTop = 0;
+    document.querySelector("#drinks").style.paddingBottom = "50px";
 }
 
-const checkScroll = () => {
-    var elementTarget = document.querySelector("#food");
-    // check if user has scrolled past food section
-    if (window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight)) {
-        openModal();
-    }
-}
-
-// open age modal on link click
+// open age modal on drinks link click
 document.querySelector("#drinks-link").addEventListener("click", openModal);
 
-//open age modal on scroll to drinks section
-window.addEventListener("scroll", checkScroll);
+// open age modal on see drinks button click
+document.querySelector("#seeDrinksBtn").addEventListener("click", openModal);
 
 // get age modal input and close modal on click
 document.querySelector("#ageSubmit").addEventListener("click", () => {
@@ -149,33 +169,6 @@ window.addEventListener("keypress", e => {
 });
 
 // =========== DRINKS MENU ===============
-const renderDrinkItem = (item, id) => {
-    const markup = `
-        <li class="drink-item" id="${removeSpaces(item.name)}">
-            <div class="drink-info">
-                <h4 class="drink-name">${item.name}</h4>
-                <p class="drink-price">${item.price}</p>
-            </div>    
-        </li>      
-    `;
-
-    // add items to the end of the list
-    document.querySelector(`#${id}`).insertAdjacentHTML("beforeend", markup);
-}
-
-const renderDrinks = items => {
-    const drinksLists = document.querySelectorAll(".drinks-list");
-
-    // // loop through all food lists (starters, main, sides, desserts)
-    for (let list of drinksLists) {
-        // loop through each entree in the list
-        for (let drink in items[list.id]) {
-            //console.log(items[list.id][drink]);
-            renderDrinkItem(items[list.id][drink], list.id);
-        }
-    }
-}
-
 const showAppropriateDrinks = () => {
     const adultDrinks = document.querySelector(".adult");
     const nonAlcDrinks = document.querySelector(".non-alc");
@@ -191,11 +184,3 @@ const showAppropriateDrinks = () => {
 document.querySelector("#navToggle").addEventListener("click", () => {
     document.querySelector("#main-menu").classList.toggle("vertical");
 });
-
-// 3. get rid of duplicate code - upload current code to github first
-// 4. add about section
-
-// if time, add button/icon for back to top 
-
-//fiddle & pipes
-// finnegan's fiddle
