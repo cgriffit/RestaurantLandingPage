@@ -53,31 +53,18 @@ nav {
 }
 
 /* Home Styles */
-#home {
+#homeImage {
     background: center/cover no-repeat url(../images/restaurant_banner.jpg);
     min-height: 90vh;
-    opacity: 0.6;
+    opacity: 0.9;
 }
-#home>.wrapper {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%);
-}
-h1 {
-    color: #1D3240;
-    font-family: 'Literata', serif;
-    font-size: 3rem;
-    font-weight: 700;
-    text-align: center;
-}
+
 /* Food/Drink Menu Styles */
 #food, #drinks {
     background: #FAF3ED;
     color: #1D3240;
 }
-#food>.wrapper, #drinks>.wrapper {
+#food .wrapper, #drinks .wrapper {
     max-width: 750px;
 }
 #drinks {
@@ -135,18 +122,16 @@ h3 {
     border-radius: 5px;
     color: #FAF3ED;
     display: none;
-    /* height: 56px; */
-    height: 6%;
-    /* width: 740px;  */
-    padding-right: 15px;
+    height: 3em;
+    padding: 5px 15px;
     position: absolute;
-    flex-direction: row;
-    justify-content: space-evenly;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
     z-index: 999;
 }
-.cancel {
-    margin-right: 10px;
+.food-desc {
+    font-size: 0.85rem;
+    font-style: italic;
 }
 
 /* Age Modal Styles*/
@@ -191,14 +176,41 @@ input#age {
     transform: scale(0.95);
 }
 
+/* Music Styles */
+#artists-container {
+    padding-bottom: 5%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.artist-card {
+    flex: 0 1 30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.artist-img {
+    height: auto;
+    margin-bottom: 5px;
+    width: 90%;
+}
+.artist-name {
+    font-size: 1.5rem;
+}
+
 /* About Styles */
 #about {
     background: #D98859;
-    padding: 30px 15px;
+    padding: 3em 0;
 }
 #about .wrapper {
     display: flex;
     align-items: center;
+}
+#about-image {
+    height: auto;
+    max-width: 50%;
 }
 #about-text {
     line-height: 1.5rem;
@@ -257,7 +269,6 @@ i {
 
     /* Food/Drink Menu Styles */
     .infoModal {
-        height: auto;
         padding: 5px;
         width: 80%;
     }
@@ -275,6 +286,7 @@ i {
         color: #1D3240;
         padding: 0.5em 1em;
     }
+
     /* Footer Styles */
     footer .wrapper {
         flex-direction: column;
@@ -283,5 +295,30 @@ i {
     footer .wrapper div {
         margin: 10px;
         text-align: center;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    /* Artist Styles */
+    #artists-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .artist-card {
+        padding-bottom: 20px;
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 1092px) {
+    /* About Styles */
+    #about .wrapper {
+        flex-direction: column;
+    }
+    #about-image {
+        max-width: 100%;
+    }
+    #about-text {
+        margin: 15px 0 0;
     }
 }

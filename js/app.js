@@ -12,14 +12,14 @@ const renderItem = (item, id, type) => {
         markup = `
             <li class="food-item" id="${removeSpaces(item.name)}">
                 <div class="infoModal">
-                    <span class="cancel"><i class="fa fas fa-times"></i></span>
-                    <p>${item.description}</p>
-                </div>
+                    <h4 class="food-name">${item.name}</h4>
+                    <p class="food-desc">${item.description}</p>
+                </div>  
                 <div class="food-info">
                     <h4 class="food-name">${item.name}</h4>
                     <p class="food-price">${item.price}</p>
                 </div>
-                <button class="more-info-btn hidden">More Info</button>       
+                <button class="more-info-btn hidden">More Info</button>     
             </li>       
         `;
     } else if (type === "drinks") {
@@ -72,50 +72,35 @@ renderDrinks(menu.drinks);
 const showMoreInfo = event => {
     let itemID, liSel;
     if (event.target.classList.contains("food-item")) {
+        // get the li ID
         itemID = event.target.closest("li").id;
     }
 
-    if (itemID) {
-        // display more info button on li 
+    if (itemID) {    
         liSel = document.querySelector(`#${itemID}`);
-        liSel.querySelector(".more-info-btn").classList.remove("hidden");
-    }
-}
-
-const hideMoreInfo = event => {
-    let itemID, liSel;
-    if (event.target.classList.contains("food-item")) {
-        itemID = event.target.closest("li").id;
-    }
-
-    if (itemID) {
-        // hide more info button on li 
-        liSel = document.querySelector(`#${itemID}`);
-        liSel.querySelector(".more-info-btn").classList.add("hidden");
+        // display more info button on li mouse enter 
+        if (event.type === "mouseenter") {
+            liSel.querySelector(".more-info-btn").classList.remove("hidden");
+          // hide more info button on li mouse leaave
+        } else if (event.type === "mouseleave") {
+            liSel.querySelector(".more-info-btn").classList.add("hidden");
+        }
     }
 }
 
 for (let li of document.querySelectorAll(".food-item")) {
-    // show more info button on li mouseenter
-    li.addEventListener("mouseenter", showMoreInfo);
-    // hide more info button on li mouseleave
-    li.addEventListener("mouseleave", hideMoreInfo);
+    ["mouseenter", "mouseleave"].forEach(event => li.addEventListener(event, showMoreInfo));
 }
 
 for (let moreInfoBtn of document.querySelectorAll(".more-info-btn")) {
     moreInfoBtn.addEventListener("click", event => {
+        let liEl = event.target.parentElement;
+        console.log(liEl);
         // show modal on more info button click
-        event.target.parentElement.firstElementChild.style.display = "flex";
-        // event.target.parentElement.firstElementChild.style.top = event.target.parentElement.offsetTop + event.target.parentElement.offsetHeight;
-        // event.target.parentElement.firstElementChild.style.left = event.target.parentElement.offsetLeft;
-
-    });
-}
-
-for (let cancelBtn of document.querySelectorAll(".cancel")) {
-    cancelBtn.addEventListener("click", event => {
-        // hide modal on cancel button click
-        event.target.parentElement.parentElement.style.display = "none";
+        liEl.firstElementChild.style.display = "flex";
+        // hide modal on leaving the li
+        liEl.addEventListener("mouseleave", () => liEl.firstElementChild.style.display = "none");
+        
     });
 }
 
@@ -184,3 +169,4 @@ const showAppropriateDrinks = () => {
 document.querySelector("#navToggle").addEventListener("click", () => {
     document.querySelector("#main-menu").classList.toggle("vertical");
 });
+

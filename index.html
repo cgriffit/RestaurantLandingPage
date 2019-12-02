@@ -13,14 +13,14 @@
 </head>
 
 <body>
-    <header>
+    <header>     
         <div class="wrapper">
             <nav>
                 <h3 id="name">Fiddle & Pipes</h3>
                 <ul id="main-menu">
-                    <li class="menu-item"><a href="#home" class="menu-link">Home</a></li>
                     <li class="menu-item"><a href="#food" class="menu-link">Food</a></li>
                     <li class="menu-item"><a href="#drinks" class="menu-link" id="drinks-link">Drinks</a></li>
+                    <li class="menu-item"><a href="#music" class="menu-link">Music</a></li>
                     <li class="menu-item"><a href="#about" class="menu-link">About</a></li>
                     <a href="#" id="navToggle" class="hidden">
                         <i class="fa fas fa-bars fa-lg"></i>
@@ -30,11 +30,7 @@
         </div>
     </header>
     <main>
-        <section id="home">
-            <div class="wrapper">
-                <h1>Tagline</h1>
-            </div>
-        </section>
+        <section id="homeImage"></section>
         <section id="food">
             <div class="wrapper">
                 <h2>FOOD</h2>
@@ -72,11 +68,28 @@
                 <input type="button" value="Submit" id="ageSubmit">
             </form>
         </div>
+        <section id="music">
+            <h2>Featured Artists</h2>
+            <div id="artists-container">
+                <div class="artist-card">
+                    <img src="images/artist_owen_2.jpg" alt="Owen Hughes" class="artist-img">
+                    <h4 class="artist-name">Owen Hughes</h4>
+                </div>
+                <div class="artist-card">
+                    <img src="images/artist_boys_2.jpg" alt="The Boys of Ballybay" class="artist-img">
+                    <h4 class="artist-name">The Boys of Ballybay</h4>
+                </div>
+                <div class="artist-card">
+                    <img src="images/artist_tim_and_rose_2.jpg" alt="Timothy and Rose" class="artist-img">
+                    <h4 class="artist-name">Timothy and Rose</h4>
+                </div>
+            </div>
+        </section>
         <section id="about">
             <div class="wrapper">
-                <img src="images/about.jpg" alt="restaurant-outside" height="350px">
+                <img src="images/about.jpg" alt="restaurant-outside" id="about-image">
                 <div id="about-text">
-                    <p>Fiddle & Pipes was founded by noted fiddle player Michael Sean O'Barrett, who traveled Ireland with his fiddle collecting the best local recipes. O'Barrett, who learned to cook at his grandmother's knee, envisioned a pub where beer, music, and conversation flowed.</p>
+                    <p>Fiddle & Pipes was founded by musician Michael Sean O'Barrett, who traveled Ireland with his fiddle collecting the best local recipes. O'Barrett, who learned to cook from his grandmother, envisioned a pub where beer, music, and conversation flowed.</p>
                     <p>He immigrated to the United States in 1897, and made his way to Madison, Wisconsin, where he was reminded of the loughs of home. He decided to settle down, and open his dream pub. </p>
                     <p>Today, Fiddle & Pipes offers live music and O'Barrett's original recipes seven days a week. We hope you'll join us for a pint.</p>
                 </div>
@@ -87,12 +100,12 @@
     <footer>
         <div class="wrapper">
             <div id="contact">
-                <h5>Contact Us</h4>
+                <h5>Contact Us</h5>
                 <p>Madison, WI 53703</p>
                 <p>(608) 301-5417‬</p>
             </div>
             <div id="hours">
-                <h5>Hours</h4>
+                <h5>Hours</h5>
                 <p>Sunday - Wednesday: 11am - 10pm</p>
                 <p>Thursday - Saturday: 11am - 12am</p>
             </div>
