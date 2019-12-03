@@ -1,4 +1,4 @@
-// =========== MENUS ===================
+// =========== FOOD/DRINK MENUS ===================
 const removeSpaces = item => {
     // remove spaces from item name to be used as item ID
     item = item.replace(/\s+/g, '-');
@@ -66,7 +66,17 @@ const renderDrinks = items => {
     }
 }
 
-renderDrinks(menu.drinks);
+const showAppropriateDrinks = () => {
+    const adultDrinks = document.querySelector(".adult");
+    const nonAlcDrinks = document.querySelector(".non-alc");
+
+    // display drinks menu based on user input
+    if (adultDrinks.classList.contains("hidden") === false) {
+        renderDrinks(menu.drinks.adult);
+    } else if (nonAlcDrinks.classList.contains("hidden") === false) {
+        renderDrinks(menu.drinks.nonAlc);
+    }
+}
 
 // =========== MORE INFO BUTTON AND MODAL ==================
 const showMoreInfo = event => {
@@ -153,20 +163,7 @@ window.addEventListener("keypress", e => {
     }
 });
 
-// =========== DRINKS MENU ===============
-const showAppropriateDrinks = () => {
-    const adultDrinks = document.querySelector(".adult");
-    const nonAlcDrinks = document.querySelector(".non-alc");
-
-    // display drinks menu based on user input
-    if (adultDrinks.classList.contains("hidden") === false) {
-        renderDrinks(menu.drinks.adult);
-    } else if (nonAlcDrinks.classList.contains("hidden") === false) {
-        renderDrinks(menu.drinks.nonAlc);
-    }
-}
-
+// ========== RESPONSIVE MENU ===============
 document.querySelector("#navToggle").addEventListener("click", () => {
     document.querySelector("#main-menu").classList.toggle("vertical");
 });
-

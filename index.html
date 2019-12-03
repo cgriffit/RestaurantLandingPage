@@ -15,6 +15,7 @@
 <body>
     <header>     
         <div class="wrapper">
+            <!-- ========= Navigation ========= -->
             <nav>
                 <h3 id="name">Fiddle & Pipes</h3>
                 <ul id="main-menu">
@@ -22,15 +23,16 @@
                     <li class="menu-item"><a href="#drinks" class="menu-link" id="drinks-link">Drinks</a></li>
                     <li class="menu-item"><a href="#music" class="menu-link">Music</a></li>
                     <li class="menu-item"><a href="#about" class="menu-link">About</a></li>
-                    <a href="#" id="navToggle" class="hidden">
-                        <i class="fa fas fa-bars fa-lg"></i>
-                    </a>
                 </ul>
+                <a href="#" id="navToggle" class="hidden">
+                    <i class="fa fas fa-bars fa-lg"></i>              
+                </a>
             </nav>
         </div>
     </header>
     <main>
         <section id="homeImage"></section>
+        <!-- ========= Food Menu ========= -->
         <section id="food">
             <div class="wrapper">
                 <h2>FOOD</h2>
@@ -44,6 +46,7 @@
                 <ul id="desserts" class="food-list"></ul>
             </div>
         </section>
+        <!-- ========= Drinks Menu ========= -->
         <section id="drinks">
             <button id="seeDrinksBtn">See Drink Menu</button>
 
@@ -62,12 +65,14 @@
                 <ul id="tea" class="drinks-list"></ul>
             </div>
         </section>
+        <!-- ========= Age Modal ========= -->
         <div class="wrapper hidden" id="ageModal">            
             <form action="" method="get" id="ageForm">
                 <input type="text" id="age" name="age" placeholder="Please enter your age">
                 <input type="button" value="Submit" id="ageSubmit">
             </form>
         </div>
+        <!-- ========= Music ========= -->
         <section id="music">
             <h2>Featured Artists</h2>
             <div id="artists-container">
@@ -85,6 +90,7 @@
                 </div>
             </div>
         </section>
+        <!-- ========= About ========= -->
         <section id="about">
             <div class="wrapper">
                 <img src="images/about.jpg" alt="restaurant-outside" id="about-image">

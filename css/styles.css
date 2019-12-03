@@ -177,6 +177,10 @@ input#age {
 }
 
 /* Music Styles */
+#music {
+    background: #FEFDFC;
+    color: #1D3240;
+}
 #artists-container {
     padding-bottom: 5%;
     display: flex;
@@ -257,14 +261,17 @@ i {
         position: relative;
     }
     #main-menu {
-        flex-direction: column;
+        display: block;
+        height: 0;
+        opacity: 0;
+        overflow: hidden;
+        text-align: center;
         width: 100%;
     }
-    #main-menu li a {
-        display: none;
-    }
-    #main-menu.vertical li a {
-        display: block;
+    #main-menu.vertical{
+        height: auto;
+        opacity: 1;
+        transition: opacity 0.5s ease-in;
     }
 
     /* Food/Drink Menu Styles */
