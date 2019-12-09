@@ -167,3 +167,23 @@ window.addEventListener("keypress", e => {
 document.querySelector("#navToggle").addEventListener("click", () => {
     document.querySelector("#main-menu").classList.toggle("vertical");
 });
+
+// ========== BACK TO TOP ===============
+const checkScroll = () => {
+    const elementTarget = document.querySelector("#homeImage");
+    // display back to top icon if scroll past home image
+    if (window.scrollY > (elementTarget.offsetTop + elementTarget.offsetHeight)) {
+        document.querySelector("#backToTop").classList.remove("hidden");
+    }
+}
+
+window.addEventListener("scroll", checkScroll);
+
+document.querySelector("#backToTop").addEventListener("click", () => {
+    // scroll back to the top of the page
+    window.scroll(0, 0);
+    // hide back to top icon
+    document.querySelector("#backToTop").classList.add("hidden");
+
+});
+

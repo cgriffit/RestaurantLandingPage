@@ -59,6 +59,14 @@ nav {
     opacity: 0.9;
 }
 
+/* Back to Top */
+#backToTop i {
+    color: #1D3240;
+    position: fixed;
+    bottom: 10px;
+    right: 15px;
+}
+
 /* Food/Drink Menu Styles */
 #food, #drinks {
     background: #FAF3ED;
@@ -272,6 +280,10 @@ i {
         height: auto;
         opacity: 1;
         transition: opacity 0.5s ease-in;
+    }
+    /* Back to Top Styles */
+    #backToTop i {
+        display: none;
     }
 
     /* Food/Drink Menu Styles */
